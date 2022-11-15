@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using MetroFramework;
+using MetroFramework.Forms;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -6,10 +8,11 @@ using System.Data;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace ConnectAPI
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroForm
     {
         JArray jsonData = new JArray();
         public Form1()
@@ -81,15 +84,47 @@ namespace ConnectAPI
             Console.WriteLine(jsonData);
         }
 
+        private string getToken()
+        {
+            var accessToken = "";
+
+            var obj = new
+            {
+                username = "",
+                password = ""
+            };
+
+            var client = new RestClient();
+            var request = new RestRequest("api_url_login", Method.Post);
+            request.AddHeader("Accept", "application/json");
+            request.AddBody("data", JsonSerializer.Serialize(obj));
+
+
+            RestResponse response = client.Execute(request);
+            if (response.StatusCode.Equals(HttpStatusCode.OK))
+            {
+                //ตรงนี้ต้อง debug ดู accesstoken ที่ได้กลับมา ว่า get ยังไง
+                accessToken = response.Content;
+            }
+
+            return accessToken;
+
+        }
+
         private void btn_post_Click(object sender, EventArgs e)
         {
+
             DialogResult dialogResult = MessageBox.Show("Do you want to post data to API", "Alert", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                //Call login API for get Token
+                var accessToken = getToken();
+
+                //Call for Post data 
                 var client = new RestClient();
                 var request = new RestRequest("api_url_here", Method.Post);
                 request.AddHeader("Accept", "application/json");
-                //request.AddHeader("x-ibm-client-id", "REPLACE_THIS_KEY");
+                request.AddHeader("Authorization", accessToken);
                 request.AddBody("data", JsonConvert.SerializeObject(jsonData));
 
                 //ใช้ในกรณีอินเทอร์เน็ตวิ่งผ่าน proxy
@@ -128,6 +163,11 @@ namespace ConnectAPI
         {
             System.Windows.Forms.Clipboard.SetText(JsonConvert.SerializeObject(jsonData, Formatting.Indented));
             MessageBox.Show("Copy Json to clipboard !!", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            MetroMessageBox.Show(this, "Do you like this metro message box?", "Metro Title", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
         }
     }
 }

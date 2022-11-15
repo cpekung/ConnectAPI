@@ -43,7 +43,7 @@
             // 
             // btn_read
             // 
-            this.btn_read.Location = new System.Drawing.Point(705, 12);
+            this.btn_read.Location = new System.Drawing.Point(705, 59);
             this.btn_read.Name = "btn_read";
             this.btn_read.Size = new System.Drawing.Size(109, 30);
             this.btn_read.TabIndex = 0;
@@ -56,7 +56,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(45, 96);
+            this.dataGridView1.Location = new System.Drawing.Point(45, 118);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -66,7 +66,7 @@
             // 
             // btn_post
             // 
-            this.btn_post.Location = new System.Drawing.Point(45, 535);
+            this.btn_post.Location = new System.Drawing.Point(45, 557);
             this.btn_post.Name = "btn_post";
             this.btn_post.Size = new System.Drawing.Size(769, 50);
             this.btn_post.TabIndex = 2;
@@ -81,14 +81,14 @@
             // tb_filePath
             // 
             this.tb_filePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tb_filePath.Location = new System.Drawing.Point(45, 12);
+            this.tb_filePath.Location = new System.Drawing.Point(45, 62);
             this.tb_filePath.Name = "tb_filePath";
             this.tb_filePath.Size = new System.Drawing.Size(600, 27);
             this.tb_filePath.TabIndex = 3;
             // 
             // btn_browse
             // 
-            this.btn_browse.Location = new System.Drawing.Point(651, 12);
+            this.btn_browse.Location = new System.Drawing.Point(651, 59);
             this.btn_browse.Name = "btn_browse";
             this.btn_browse.Size = new System.Drawing.Size(48, 30);
             this.btn_browse.TabIndex = 4;
@@ -99,7 +99,7 @@
             // tb_json
             // 
             this.tb_json.BackColor = System.Drawing.SystemColors.Info;
-            this.tb_json.Location = new System.Drawing.Point(45, 384);
+            this.tb_json.Location = new System.Drawing.Point(45, 406);
             this.tb_json.Name = "tb_json";
             this.tb_json.Size = new System.Drawing.Size(769, 145);
             this.tb_json.TabIndex = 5;
@@ -110,7 +110,7 @@
             this.lb_total.AutoSize = true;
             this.lb_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lb_total.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lb_total.Location = new System.Drawing.Point(41, 64);
+            this.lb_total.Location = new System.Drawing.Point(41, 90);
             this.lb_total.Name = "lb_total";
             this.lb_total.Size = new System.Drawing.Size(124, 20);
             this.lb_total.TabIndex = 6;
@@ -119,7 +119,7 @@
             // btn_clear
             // 
             this.btn_clear.AutoSize = true;
-            this.btn_clear.Location = new System.Drawing.Point(45, 592);
+            this.btn_clear.Location = new System.Drawing.Point(45, 614);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(39, 16);
             this.btn_clear.TabIndex = 7;
@@ -130,7 +130,7 @@
             // lb_copy
             // 
             this.lb_copy.AutoSize = true;
-            this.lb_copy.Location = new System.Drawing.Point(90, 592);
+            this.lb_copy.Location = new System.Drawing.Point(90, 614);
             this.lb_copy.Name = "lb_copy";
             this.lb_copy.Size = new System.Drawing.Size(71, 16);
             this.lb_copy.TabIndex = 8;
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 615);
+            this.ClientSize = new System.Drawing.Size(856, 652);
             this.Controls.Add(this.lb_copy);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.lb_total);
@@ -153,8 +153,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_read);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
+            this.Style = MetroFramework.MetroColorStyle.Pink;
+            this.Text = "Connect API";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
